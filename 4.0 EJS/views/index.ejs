@@ -7,5 +7,20 @@
 </head>
 <body>
     <h1>Hey, <%= dayType %> <%= advice %></h1>
+    <h2>You are <%= data.seconds %> seconds past the update</h2>
+    <% if (data.seconds%2 === 0) { %>
+        <ul>
+          <% for (let i=0; i<data.items.length; i++) {%> 
+            <li>
+                <%= data.items[i] %>
+            </li> 
+          <% } %>   
+        </ul>  
+    <% } else if (data.seconds%2 !== 0) { %>
+        <h2>Sorry, no items for you</h2>       
+    <% } %>
+    <%- data.htmlContent %>
+    <%- include("footer.ejs") %>
+    
 </body>
 </html>
